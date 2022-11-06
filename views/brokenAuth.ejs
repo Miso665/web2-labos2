@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sigurnost</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mihael Cugovčan" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <link rel="stylesheet" type="text/css" href="/login.css" />
+    <script src="/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="centered">
+    <div class="header">
+        <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Testiranje sigurnosti aplikacije</h1>
+        <div>
+            <a href="/">
+                <button class="button">Početna</button>
+            </a>
+            <a href="/sqlinjection">
+                <button class="button">SQL injection</button>
+            </a>
+            <a href="/brokenauth">
+                <button class="button">Broken authentication</button>
+            </a>
+            
+        </div>
+        
+    </div>
+    <br/>
+    <br />
+        <div>Odaberite način rada:</div>
+        <input type="radio" id="nes" name="odabrano" value="1" checked>
+        <label for="nes">Nesigurno</label><br>
+        <input type="radio" id="sig" name="odabrano" value="2">
+        <label for="sig">Sigurno</label><br>
+        <br />
+    <section>
+        <div>Nesigurni način prijave vraća jako loše povratne podatke, točnije specificira što nije dobro napisano</div>
+        <div>Ako nije dobra lozinka vraća da za traženo korisničko ime lozinka nevalja, a ako korisničko ime nevalja vraća da to ne postoji u bazi</div>
+        <div>Parovi korisničko ime - lozinka:</div>
+        <div>korisnik1 - 12345678</div>
+        <div>korisnik2 - lozinka123</div>
+    </section>
+    <br/>
+        <div class="container centered" style="width: 30%;">
+          <label for="uname"><b>Korisničko ime</b></label>
+          <input type="text" placeholder="Unesite korisničko ime" name="uname" id="username" required>
+      
+          <label for="psw"><b>Lozinka</b></label>
+          <input type="password" placeholder="Unesite lozinku" name="psw" id="password" required>
+          <div id="povratnaporuka" style="color: red"></div>
+          <button onclick="sendLogin()" class="loginbutton">Prijava</button>
+        </div>
+      <br/>
+      <section>
+        <div>Sigurniji način prijave to riješava tako da vraća samo povratnu poruku o tome da nešto od napisanog nevalja</div>
+        <div>Za prikaz forme za registraciju i testiranje spremanja lozinke: <a href="/brokenregister"> Registracija </a> </div>
+    </section>
+    <br/>
+</body>
+
+</html>

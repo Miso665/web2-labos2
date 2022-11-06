@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sigurnost</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mihael Cugovčan" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <link rel="stylesheet" type="text/css" href="/login.css" />
+    <script src="/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="centered">
+    <div class="header">
+        <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Testiranje sigurnosti aplikacije</h1>
+        <div>
+            <a href="/">
+                <button class="button">Početna</button>
+            </a>
+            <a href="/sqlinjection">
+                <button class="button">SQL injection</button>
+            </a>
+            <a href="/brokenauth">
+                <button class="button">Broken authentication</button>
+            </a>
+            
+        </div>
+        
+    </div>
+    <br/>
+    <br />
+        <div>Odaberite način rada:</div>
+        <input type="radio" id="nes" name="odabrano" value="1" checked>
+        <label for="nes">Nesigurno</label><br>
+        <input type="radio" id="sig" name="odabrano" value="2">
+        <label for="sig">Sigurno</label><br>
+        <br />
+    <section>
+        <div>Nesigurni način registracije lozinke u bazu sprema kao običan tekst, čime su uz SQL injection lozinke još više u opasnosti</div>
+        <div>Siguran način to rješava tako da sprema lozinke šifrirane algoritmom za kriptiranje</div>
+        <div>U oba slučaja uspješna registracija vraća kako je lozinka spremljena u bazi podataka</div>
+    </section>
+    <br/>
+        <div class="container centered" style="width: 30%;">
+          <label for="uname"><b>Korisničko ime</b></label>
+          <input type="text" placeholder="Unesite korisničko ime" name="uname" id="username" required>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Unesite email" name="email" id="email" required>
+          <label for="psw"><b>Lozinka</b></label>
+          <input type="password" placeholder="Unesite lozinku" name="psw" id="password" required>
+          <label for="psw2"><b>Ponovi lozinku</b></label>
+          <input type="password" placeholder="Unesite lozinku" name="psw2" id="password2" required>
+          <div id="povratnaporuka" style="color: red"></div>
+          <button onclick="sendRegister()" class="loginbutton">Registracija</button>
+        </div>
+      <br/>
+    <br/>
+</body>
+
+</html>
